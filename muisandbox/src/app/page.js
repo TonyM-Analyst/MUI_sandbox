@@ -1,10 +1,18 @@
 import Image from "next/image";
-import styles from "./page.module.css";
+import styles from "./page.module.css"
+import natural_background from "../../public/images/natural_background.png";
 
 export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
+        <div>
+      <Image 
+      src={natural_background}
+      alt="Custom Image"
+      width={800}
+      height={600}/>
+      </div>
         <Image
           className={styles.logo}
           src="/next.svg"
