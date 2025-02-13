@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css"
 import natural_background from "../../public/images/natural_background.png";
+import JokeMemeGallery from "./getDadJoke";
 
 export default function Home() {
   return (
@@ -52,6 +53,10 @@ export default function Home() {
           >
             Read our docs
           </a>
+          <></>
+        </div>
+        <div>
+          <JokeMemeGallery/>
         </div>
       </main>
       <footer className={styles.footer}>

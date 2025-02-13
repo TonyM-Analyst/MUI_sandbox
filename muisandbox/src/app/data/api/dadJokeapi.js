@@ -1,23 +1,45 @@
 // data handler function to retrieve dad jokes from api and export it
 
-export async function fetchDadJokes() {
+// data handler function to retrieve dad jokes from 9GAG API
+export async function fetchDadJokes(after = 5) {
     try {
-        const response = await fetch('https://dad-jokes-api1.p.rapidapi.com/dad_jokes', {
-            method: 'GET',
+        const url = `https://programmer-humor.p.rapidapi.com/api/9gag?sorting=hot&after=${after}`;
+        const options = {
+            method: "GET",
             headers: {
-                'x-rapidapi-key': 'd9aef98ee7msh8e588dd4af72048p140048jsnfb9b03e4a70c',
-                'x-rapidapi-host': 'dad-jokes-api1.p.rapidapi.com'
-            }
-        });
+                "x-rapidapi-key": "d9aef98ee7msh8e588dd4af72048p140048jsnfb9b03e4a70c",
+                "x-rapidapi-host": "programmer-humor.p.rapidapi.com",
+            },
+        };
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
+        const response = await fetch(url, options);
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
-        const data = await response.json();
-        return data;
+        const result = await response.json();
+        return result; // Ensure JSON is returned
     } catch (error) {
-        console.error('Error fetching dad jokes:', error);
-        return null;
+        console.error("Error fetching jokes:", error);
+        return []; // Return empty array on failure
     }
-};
+}
+
+
+// export async function fetchDadJokes() {
+//     try {
+//         const url = 'https://programmer-humor.p.rapidapi.com/api/9gag?sorting=hot&after=5';
+//         const options = {
+// 	        method: 'GET',
+// 	        headers: {
+// 		    'x-rapidapi-key': 'd9aef98ee7msh8e588dd4af72048p140048jsnfb9b03e4a70c',
+// 		    'x-rapidapi-host': 'programmer-humor.p.rapidapi.com'
+// 	    }
+//     };
+
+//     const response = await fetch(url, options);
+// 	const result = await response.text();
+// 	console.log(result);
+//     } catch (error) {
+//         console.error('Error fetching jokes:', error);
+//         return 'Oops! No joke available right now. 🤷‍♂️';
+//     }
+// }
