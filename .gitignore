@@ -134,3 +134,6 @@ dist
 .pyc
 .python
 .cpython.*
+
+#venv
+muivenv/
