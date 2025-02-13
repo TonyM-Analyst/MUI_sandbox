@@ -129,11 +129,5 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-# python venv
-.py
-.pyc
-.python
-.cpython.*
-
-#venv
+#venv directory
 muivenv/
