@@ -65,7 +65,7 @@ export default function MemeGallery() {
     return (
         <Box sx={{ p: 3 }}>
             <Typography variant="h4" align="center" gutterBottom>
-                🎭 Programming Memes from 9GAG 🎭
+                🎭 Programming Memes 🎭
             </Typography>
 
             {/* Loading State */}
